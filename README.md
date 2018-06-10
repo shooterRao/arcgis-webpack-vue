@@ -6,10 +6,10 @@
 
 **Arcgis jsapi地址用的是本人本地部署api的地址，需要改成你们本地或者外网上的地址**
 
-需要更改的文件分别为
-
 * `/index.html` 找到相关信息进行修改(开发环境)
 * `webpack.prod.conf.js`里的`new HtmlWebpackPlugin`配置信息进行修改(生产环境)
+
+#### 怎么跑起来？
 
 > npm install
 > npm run dev // 启动webpack server, 开启本地开发环境
