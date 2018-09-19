@@ -2,6 +2,9 @@
 
 现在技术栈已定vue+es6+，所以我们需要重点研究arcgis-webpack-vue方案，结合目前的业务和项目进行相关预研
 
+**20180919**
+新增在vuecli2模板基本上接入arcgis js qpi，增加eslint、prettier、githook、外部配置arcgis地址等相关功能，在**vuecli2**分支上 [https://github.com/shooterRao/arcgis-webpack-vue/tree/vuecli2](https://github.com/shooterRao/arcgis-webpack-vue/tree/vuecli2)
+
 ## 如何测试？
 
 **Arcgis jsapi地址用的是本人本地部署api的地址，需要改成你们本地或者外网上的地址**
