@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <!-- 动态注入自定义css -->
+  <% for(const i of Object.keys(htmlWebpackPlugin.options.libs)) {%>
+  <% const lib = htmlWebpackPlugin.options.libs[i]%>
+  <% if(!!lib.css) { %>
+  <link rel='stylesheet' href='<%= lib.css %>'>
+  </script>
+  <% } %>
+  <% } %>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script>
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    // dojoConfig...
+    window.dojoConfig = {
+      async: false,
+      // packages: [{
+      //   name: 'app',
+      //   location: locationPath + "/app"
+      // }]
+    };
+  </script>
+
+  <!-- 动态引入自定义lib.js -->
+
+  <% for(const i of Object.keys(htmlWebpackPlugin.options.libs)) {%>
+  <% const lib = htmlWebpackPlugin.options.libs[i]%>
+  <% if(!!lib.js) { %>
+  <script src="<%= lib.js %>"></script>
+  <% } %>
+  <% } %>
+
+  <script>
+    // 加载webpack打包出来的chunk
+    var chunks = [];
+    `<% for (const jsChunk of htmlWebpackPlugin.files.js) { %>`
+      chunks.push("<%= jsChunk %>");
+    `<% } %>`
+      require(chunks)
+
+  </script>
+
+</body>
+
+</html>
