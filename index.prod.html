@@ -7,12 +7,27 @@
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
+
+  <style>
+    html, body, #app {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #loading{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+  </style>
+
   <!-- 动态注入自定义css -->
   <% for(const i of Object.keys(htmlWebpackPlugin.options.libs)) {%>
   <% const lib = htmlWebpackPlugin.options.libs[i]%>
   <% if(!!lib.css) { %>
-  <link rel='stylesheet' href='<%= lib.css %>'>
-  </script>
+  <link rel='stylesheet' href='<%= lib.css %>'/>
   <% } %>
   <% } %>
   <!-- 动态注入app.css等 -->
@@ -22,7 +37,9 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div id="loading">Loading...</div>
+  </div>
   <!-- built files will be auto injected -->
   <script>
     var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
