@@ -52,6 +52,7 @@ module.exports = {
     'comma-dangle': [2, 'never'],// 结尾不使用逗号
     'import/no-unresolved': [2, { "ignore": ["esri","dojo"] }], // 解决import esri/xxx编译不通过
     'import/extensions': 0,
-    'no-console': 0 
+    'no-console': 0,
+    'arrow-parens': [2, 'as-needed'] // 箭头函数参数只有一个时无需加括号
   }
 }

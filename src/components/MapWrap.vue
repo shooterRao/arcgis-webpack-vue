@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Map from './Map';
 
 export default {
@@ -14,6 +15,19 @@ export default {
   },
   components: {
     Map
+  },
+  computed: {
+    ...mapGetters(['map', 'mapView'])
+  },
+  methods: {
+    getMapInfo() {
+      // 方便在各个组件中获取map对象和mapView对象
+      console.log(this.map)
+      console.log(this.mapView)
+    }
+  },
+  mounted() {
+    this.getMapInfo()
   }
 };
 </script>

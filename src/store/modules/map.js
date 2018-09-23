@@ -2,22 +2,22 @@ const map = {
   namespaced: true,
   state: {
     map: null,
-    view: null
+    mapView: null
   },
   actions: {
     setMap({ commit }, value) {
-      commit('SETMAP', value);
+      commit('SET_MAP', value);
     },
     setView({ commit }, value) {
-      commit('SETVIEW', value);
+      commit('SET_VIEW', value);
     }
   },
   mutations: {
-    SETMAP(state, value) {
+    SET_MAP(state, value) {
       state.map = value;
     },
-    SETVIEW(state, value) {
-      state.view = value;
+    SET_VIEW(state, value) {
+      state.mapView = value;
     }
   }
 };
