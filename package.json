@@ -79,9 +79,13 @@
     "not ie <= 8"
   ],
   "lint-staged": {
-    "src/**/*.{vue,js,json,css,less,md}": [
+    "src/**/*.{vue,js}": [
       "prettier --write",
       "eslint --fix --ext",
+      "git add"
+    ],
+    "src/**/*.{json,md,css,scss,less}": [
+      "prettier --write",
       "git add"
     ]
   },
