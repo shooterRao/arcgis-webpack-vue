@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
+import mapMix from '@/utils/mixins/map';
 import Map from './Map';
 
 export default {
@@ -16,9 +17,9 @@ export default {
   components: {
     Map
   },
-  computed: {
-    ...mapGetters(['map', 'mapView'])
-  },
+  // computed: {
+  //   ...mapGetters(['map', 'mapView'])
+  // },
   methods: {
     getMapInfo() {
       // 方便在各个组件中获取map对象和mapView对象
@@ -28,7 +29,8 @@ export default {
   },
   mounted() {
     this.getMapInfo()
-  }
+  },
+  mixins: [mapMix]
 };
 </script>
 
